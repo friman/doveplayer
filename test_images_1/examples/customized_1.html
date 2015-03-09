@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang='en'>
+	<!--<![endif]-->
+	<head>
+		<meta charset='utf-8' />
+		<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
+		<title>Demo | MaxImage 2.0</title>
+		
+		<meta content='jQuery Plugin to make jQuery Cycle Plugin work as a fullscreen background image slideshow' name='description' />
+		<meta content='Aaron Vanderzwan' name='author' />
+		
+		<meta name="distribution" content="global" />
+		<meta name="language" content="en" />
+		<meta content='width=device-width, initial-scale=1.0' name='viewport' />
+		
+		<link rel="shortcut icon" href="http://www.stylexseating.com/favicon.ico" />
+		<link rel="apple-touch-icon" href="http://www.stylexseating.com/favicon.png" />
+		
+		<link rel="stylesheet" href="../lib/css/jquery.maximage.css?v=1.2" type="text/css" media="screen" charset="utf-8" />
+		<link rel="stylesheet" href="../lib/css/screen.css?v=1.2" type="text/css" media="screen" charset="utf-8" />
+
+		<!-- Own fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Life+Savers' rel='stylesheet' type='text/css'>
+		
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		
+		<style type="text/css" media="screen">
+			/* I wanted to center my loader */
+			#cycle-loader {
+				height:32px;
+				left:50%;
+				margin:-8px 0 0 -8px;
+				position:absolute;
+				top:50%;
+				width:32px;
+				z-index:999;
+			}
+			
+			/*I want to avoid jumpiness as the JS loads, so I initially hide my cycle*/
+			#maximage {
+				display:none;/* Only use this if you fade it in again after the images load */
+				position:fixed !important;
+			}
+			
+			/*Set my gradient above all images*/
+			#gradient {
+				left:0;
+				height:100%;
+				position:absolute;
+				top:0;
+				width:100%;
+				z-index:999;
+			}
+			
+			/*Set my logo in bottom left*/
+			#logo {
+				bottom:30px;
+				height:auto;
+				right:30px;
+				position:absolute;
+				z-index:1000;
+				
+				background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+				background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+				background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+				background-image: -o-linear-gradient(top, #3498db, #2980b9);
+				background-image: linear-gradient(to bottom, #3498db, #2980b9);
+				-webkit-border-radius: 28;
+				-moz-border-radius: 28;
+				border-radius: 28px;
+				text-shadow: 3px 3px 3px #666666;
+				font-family: Arial;
+				color: #ffffff;
+				font-size: 20px;
+				padding: 10px 20px 10px 20px;
+				border: solid #1f628d 2px;
+				text-decoration: none;
+
+			}
+			
+			#arrow_left, #arrow_right {
+				bottom:30px;
+				height:67px;
+				position:absolute;
+				right:30px;
+				width:36px;
+				z-index:1000;
+			}
+			#arrow_left {
+				right:86px;
+			}
+			
+			#arrow_left:hover, #arrow_right:hover {
+				bottom:29px;
+			}
+			#arrow_left:active, #arrow_right:active {
+				bottom:28px;
+			}
+			
+			a {color:#666;text-decoration:none;}
+			a:hover {text-decoration:underline;}
+			
+			.in-slide-content { 
+				text-align: center;
+				position: absolute;
+			    top: 0px;
+			    left: 12px;
+			    width: 250px;
+			    height: 100%;
+			    padding: 1px;
+			    border: solid 1px #666;
+			    background: #ffffff;
+			    -webkit-box-shadow: 3px 3px 10px 3px #000000;
+				box-shadow: 3px 3px 10px 3px #000000;
+			    -webkit-border-top-left-radius: 10px;
+				-webkit-border-top-right-radius: 10px;
+				-moz-border-radius-topleft: 10px;
+				-moz-border-radius-topright: 10px;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+			}
+			#header {
+				position: absolute;
+				top: 20px;
+				width: 100%;
+				font-size: 30px;
+				font-style: bold;
+				color: red;
+			}
+			#number {
+				position: absolute;
+				top: 60px;
+				width: 100%;
+				font-family: 'Life Savers', cursive;
+				font-size: 100px;
+				font-style: bold;
+				color: blue;
+				text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+			}
+
+		</style>
+		
+		<!--[if IE 6]>
+			<style type="text/css" media="screen">
+				/*I don't feel like messing with pngs for this browser... sorry*/
+				#gradient {display:none;}
+			</style>
+		<![endif]-->
+	</head>
+	<body>
+		<div id="logo">DOVE-PLAYER</div>
+		<img id="cycle-loader" src="../lib/images/ajax-loader.gif" />
+		<div id="maximage">
+			<div>
+				<img src="../lib/images/demo/1.jpg" alt="" />
+				<img id="gradient" src="../lib/images/demo/gradient.png" alt="" />
+				<div class="in-slide-content" style="display:none;">
+					<div id="header">NU BETJÄNAS</div>
+					<div id="number">979</div>
+				</div>
+			</div>
+			<img src="../lib/images/demo/2.jpg" alt="" />
+			<img src="../lib/images/demo/3.jpg" alt="" />
+			<img src="../lib/images/demo/4.jpg" alt="" />
+			<img src="../lib/images/demo/5.jpg" alt="" />
+		</div>
+		
+		<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js'></script>
+		<script src="../lib/js/jquery.cycle.all.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../lib/js/jquery.maximage.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			$(function(){
+				$('#maximage').maximage({
+					cycleOptions: {
+						fx: 'fade',
+						speed: 1000, // Has to match the speed for CSS transitions in jQuery.maximage.css (lines 30 - 33)
+					},
+					onFirstImageLoaded: function(){
+						jQuery('#cycle-loader').hide();
+						jQuery('#maximage').fadeIn('fast');
+					}
+				});
+
+	
+				// To show it is dynamic html text
+				jQuery('.in-slide-content').delay(1200).fadeIn();
+			});
+		</script>
+		
+
+  </body>
+</html>
