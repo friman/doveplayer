@@ -1,0 +1,87 @@
+.vegas-timer {
+    z-index: 500 !important;
+}
+
+.vegas-timer-progress {
+    background: #F24535;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    background: #000;
+    color: #fff;
+    font: 1em Arial, sans-serif;
+}
+
+/* Nu betjänas - start */
+.serving {
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    left: 12px;
+    width: 200px;
+    height: 170px;
+    padding: 1px;
+    border: solid 1px #666;
+    background: #FFFFCC;
+    opacity: 0.9;
+    -webkit-box-shadow: 3px 3px 10px 3px #000000;
+    box-shadow: 3px 3px 10px 3px #000000;
+    --webkit-border-bottom-right-radius: 60px;
+    -webkit-border-bottom-left-radius: 60px;
+    -moz-border-radius-bottomright: 60px;
+    -moz-border-radius-bottomleft: 60px;
+    border-bottom-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+    color: black;
+    }
+    #header {
+        text-align: center;
+        position: relative;
+        top: 40px;
+        font-size: 20px;
+        text-decoration: underline;
+    }
+    #number {
+        text-align: center;
+        position: relative;
+        top: 35px;
+        font-size: 50px;
+        font-weight: bold;
+    }
+/* Nu betjänas - stopp */
+
+.newsScroller {
+    position: absolute;
+    bottom: 10px;
+    border-radius: 10px 0px 0px 10px;
+    -moz-border-radius: 10px 0px 0px 10px;
+    -webkit-border-radius: 10px 0px 0px 10px;
+    border: 1px solid #000000;
+    height: 33px;
+    width: 98%;
+    right: 10px;
+    background: #FFFFFF;
+    opacity: 0.9;
+    font-size: 25px;
+    color: black;
+
+}
